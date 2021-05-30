@@ -20,28 +20,34 @@ make run
 ```
 
 ## API Requests
-[GET] Get All Books - http://localhost:8080/books
+[![Run in Insomnia}](https://insomnia.rest/images/run.svg)](https://insomnia.rest/run/?label=Go%20API&uri=https%3A%2F%2Fgithub.com%2Flucasfrancaid%2Fgo-api%2Fblob%2Fmain%2Fdocs%2Finsomnia.json)
 
-[GET] Get Book - http://localhost:8080/books/1
-
-[POST] Create Book - http://localhost:8080/books
+### Authors
+[POST] Create Author --> http://localhost:8080/v1/authors  
+[GET] Get All Authors --> http://localhost:8080/v1/authors  
+[GET] Get Author --> http://localhost:8080/v1/authors/1  
+[PUT] Update Author --> http://localhost:8080/v1/books/1  
+[DELETE] Delete Authors --> http://localhost:8080/v1/authors/1  
 ```json
+// [post, put] request schema
+{
+	"name": "Robert C. Martin (Uncle Bob)",
+	"site": "https://github.com/unclebob"
+}
+```
+
+### Books
+[POST] Create Book --> http://localhost:8080/v1/books  
+[GET] Get All Books --> http://localhost:8080/v1/books  
+[GET] Get Book --> http://localhost:8080/v1/books/1  
+[PUT] Update Book --> http://localhost:8080/v1/books/1  
+[DELETE] Delete Books --> http://localhost:8080/v1/books/1  
+```json
+// [post, put] request schema
 {
 	"title": "Clean Coder",
-	"author": "Robert C. Martin (Uncle Bob)",
+	"author_id": 1,
 	"price": 19.89,
 	"published": "2018-11-22T15:04:00Z"
 }
 ```
-
-[PUT] Update Book - http://localhost:8080/books/1
-```json
-{
-	"title": "Clean Architecture",
-	"author": "Robert C. Martin (Uncle Bob)",
-	"price": 34.89,
-	"published": "2019-12-05T12:04:00Z"
-}
-```
-
-[DELETE] Delete Books - http://localhost:8080/books/1
