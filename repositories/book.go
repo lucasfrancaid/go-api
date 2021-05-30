@@ -6,13 +6,20 @@ import (
 	"go-api/schemas"
 )
 
-func GetAllBooks() (*[]models.Book, error) {
-	var books *[]models.Book
+func GetAllBooks() ([]models.Book, error) {
+	var books []models.Book
 	db := config.GetDatabase()
-	err := db.Find(&books).Error
 
-	if err != nil {
+	if err := db.Find(&books).Error; err != nil {
 		return books, err
+	}
+
+	if len(books) > 0 {
+		for index, _ := range books {
+			if err := db.Model(&models.Author{}).Where("id = ?", books[index].AuthorID).Take(&books[index].Author).Error; err != nil {
+				return books, err
+			}
+		}
 	}
 
 	return books, nil
@@ -21,10 +28,15 @@ func GetAllBooks() (*[]models.Book, error) {
 func GetBook(bookId string) (models.Book, error) {
 	var book models.Book
 	db := config.GetDatabase()
-	err := db.First(&book, bookId).Error
 
-	if err != nil {
+	if err := db.First(&book, bookId).Error; err != nil {
 		return book, err
+	}
+
+	if book.ID != 0 {
+		if err := db.Model(&models.Author{}).Where("id = ?", book.AuthorID).Take(&book.Author).Error; err != nil {
+			return book, err
+		}
 	}
 
 	return book, nil
@@ -35,13 +47,12 @@ func CreateBook(book_schema *schemas.CreateBookSchema) (models.Book, error) {
 
 	book := models.Book{
 		Title:     book_schema.Title,
-		Author:    book_schema.Author,
+		AuthorID:  book_schema.AuthorID,
 		Price:     book_schema.Price,
 		Published: book_schema.Published,
 	}
-	err := db.Create(&book).Error
 
-	if err != nil {
+	if err := db.Create(&book).Error; err != nil {
 		return book, err
 	}
 
@@ -52,12 +63,12 @@ func UpdateBook(bookId string, book_schema *schemas.CreateBookSchema) (models.Bo
 	var book models.Book
 	db := config.GetDatabase()
 
-	if errNotFound := db.First(&book, bookId).Error; errNotFound != nil {
-		return book, errNotFound
+	if errBookNotFound := db.First(&book, bookId).Error; errBookNotFound != nil {
+		return book, errBookNotFound
 	}
 
 	book.Title = book_schema.Title
-	book.Author = book_schema.Author
+	book.AuthorID = book_schema.AuthorID
 	book.Price = book_schema.Price
 	book.Published = book_schema.Published
 
@@ -71,9 +82,7 @@ func UpdateBook(bookId string, book_schema *schemas.CreateBookSchema) (models.Bo
 func DeleteBook(bookId string) error {
 	db := config.GetDatabase()
 
-	err := db.Delete(&models.Book{}, bookId).Error
-
-	if err != nil {
+	if err := db.Delete(&models.Book{}, bookId).Error; err != nil {
 		return err
 	}
 
