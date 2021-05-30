@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  server:
+    container_name: go-api
+    build: .
+    depends_on:
+      - postgres
+    ports:
+      - '8080:8080'
+    volumes:
+      - .:/src/go-api/
+    env_file: .env.dev
+
+  postgres:
+    container_name: go-api-postgres
+    image: postgres:alpine
+    environment:
+      POSTGRES_DB: go-api
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: toor
+    ports:
+      - '5432:5432'
