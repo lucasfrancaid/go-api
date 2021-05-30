@@ -1,13 +1,13 @@
 {
     "_type": "export",
     "__export_format": 4,
-    "__export_date": "2021-05-30T09:32:38.311Z",
+    "__export_date": "2021-05-30T09:46:44.982Z",
     "__export_source": "insomnia.desktop.app:v2021.3.0",
     "resources": [
         {
             "_id": "req_77d3b8c026594dc4a2f9e1733150b65f",
             "parentId": "fld_5f988281e20446e58adc3db83f3c6ebd",
-            "modified": 1622367091539,
+            "modified": 1622367942237,
             "created": 1622367080896,
             "url": "http://localhost:8080/ping",
             "name": "Ping",
@@ -17,7 +17,7 @@
             "parameters": [],
             "headers": [],
             "authentication": {},
-            "metaSortKey": -1622367080896,
+            "metaSortKey": -1622367914807,
             "isPrivate": false,
             "settingStoreCookies": true,
             "settingSendCookies": true,
@@ -83,14 +83,26 @@
         },
         {
             "_id": "fld_2946a8344ff34d279c4c89ad0ea5caef",
-            "parentId": "fld_5f988281e20446e58adc3db83f3c6ebd",
-            "modified": 1622364529767,
+            "parentId": "fld_fc25d962ffb14c8cae66fda458293cd9",
+            "modified": 1622367920775,
             "created": 1622364489650,
             "name": "Authors",
             "description": "",
             "environment": {},
             "environmentPropertyOrder": null,
             "metaSortKey": -1622364489750,
+            "_type": "request_group"
+        },
+        {
+            "_id": "fld_fc25d962ffb14c8cae66fda458293cd9",
+            "parentId": "fld_5f988281e20446e58adc3db83f3c6ebd",
+            "modified": 1622367914757,
+            "created": 1622367914757,
+            "name": "V1",
+            "description": "",
+            "environment": {},
+            "environmentPropertyOrder": null,
+            "metaSortKey": -1622367914757,
             "_type": "request_group"
         },
         {
@@ -228,8 +240,8 @@
         },
         {
             "_id": "fld_2d463ee536e747bb97d63f8cab775728",
-            "parentId": "fld_5f988281e20446e58adc3db83f3c6ebd",
-            "modified": 1622364527035,
+            "parentId": "fld_fc25d962ffb14c8cae66fda458293cd9",
+            "modified": 1622367931678,
             "created": 1622364519479,
             "name": "Books",
             "description": "",
@@ -264,7 +276,7 @@
         {
             "_id": "req_dd495ab532934f159d6710ba433b246d",
             "parentId": "fld_2d463ee536e747bb97d63f8cab775728",
-            "modified": 1622364569665,
+            "modified": 1622367891473,
             "created": 1622364566432,
             "url": "http://localhost:8080/v1/books/1",
             "name": "Get Book",
