@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os"
 	"strconv"
+	"time"
 
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
@@ -47,6 +48,7 @@ func DatabaseConnection() {
 		settings.db.Host, settings.db.User, settings.db.Password,
 		settings.db.Name, settings.db.Port)
 
+	time.Sleep(2000)
 	conn, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
 
 	if err != nil {
