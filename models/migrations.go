@@ -1,6 +1,6 @@
 package models
 
-import "go-api/config"
+import "github.com/lucasfrancaid/go-api/config"
 
 func Migrator() {
 	db := config.GetDatabase()

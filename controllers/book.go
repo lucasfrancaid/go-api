@@ -1,10 +1,9 @@
 package controllers
 
 import (
-	"go-api/repositories"
-	"go-api/schemas"
-
 	"github.com/gin-gonic/gin"
+	"github.com/lucasfrancaid/go-api/repositories"
+	"github.com/lucasfrancaid/go-api/schemas"
 )
 
 func GetAllBooks(ctx *gin.Context) {

@@ -1,13 +1,13 @@
 {
     "_type": "export",
     "__export_format": 4,
-    "__export_date": "2021-05-30T09:46:44.982Z",
+    "__export_date": "2021-06-03T09:42:07.328Z",
     "__export_source": "insomnia.desktop.app:v2021.3.0",
     "resources": [
         {
             "_id": "req_77d3b8c026594dc4a2f9e1733150b65f",
             "parentId": "fld_5f988281e20446e58adc3db83f3c6ebd",
-            "modified": 1622367942237,
+            "modified": 1622371743951,
             "created": 1622367080896,
             "url": "http://localhost:8080/ping",
             "name": "Ping",
@@ -152,9 +152,32 @@
             "_type": "request"
         },
         {
+            "_id": "req_c74e233ee96443689ac1f7ab842e1031",
+            "parentId": "fld_2946a8344ff34d279c4c89ad0ea5caef",
+            "modified": 1622711566077,
+            "created": 1622711555147,
+            "url": "http://localhost:8080/v1/authors/1/books",
+            "name": "Get Author Books",
+            "description": "",
+            "method": "GET",
+            "body": {},
+            "parameters": [],
+            "headers": [],
+            "authentication": {},
+            "metaSortKey": -1622364406014,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
             "_id": "req_094e2e7ed9904280a38a19614527f728",
             "parentId": "fld_2946a8344ff34d279c4c89ad0ea5caef",
-            "modified": 1622365204863,
+            "modified": 1622369407138,
             "created": 1622364468608,
             "url": "http://localhost:8080/v1/authors/1",
             "name": "Update Author",
@@ -209,7 +232,7 @@
         {
             "_id": "req_856f5f57b65e447d9f51bfdb246659b2",
             "parentId": "fld_2d463ee536e747bb97d63f8cab775728",
-            "modified": 1622364830512,
+            "modified": 1622712506794,
             "created": 1622364542164,
             "url": "http://localhost:8080/v1/books",
             "name": "Create Book",
@@ -217,7 +240,7 @@
             "method": "POST",
             "body": {
                 "mimeType": "application/json",
-                "text": "{\n\t\"title\": \"Clean Coder\",\n\t\"authorId\": 1,\n\t\"price\": 19.89,\n\t\"published\": \"2018-11-22T15:04:00Z\"\n}"
+                "text": "{\n\t\"title\": \"Clean Coder\",\n\t\"author_id\": 1,\n\t\"price\": 19.89,\n\t\"published\": \"2018-11-22T15:04:00Z\"\n}"
             },
             "parameters": [],
             "headers": [

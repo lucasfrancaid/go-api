@@ -1,9 +1,9 @@
 package repositories
 
 import (
-	"go-api/config"
-	"go-api/models"
-	"go-api/schemas"
+	"github.com/lucasfrancaid/go-api/config"
+	"github.com/lucasfrancaid/go-api/models"
+	"github.com/lucasfrancaid/go-api/schemas"
 )
 
 func GetAllAuthors() ([]models.Author, error) {
@@ -26,6 +26,21 @@ func GetAuthor(authorId string) (models.Author, error) {
 	}
 
 	return author, nil
+}
+
+func GetAuthorBooks(authorId string) ([]models.Book, error) {
+	var books []models.Book
+	db := config.GetDatabase()
+
+	if errAuthorNotFound := db.First(&models.Author{}, authorId).Error; errAuthorNotFound != nil {
+		return books, errAuthorNotFound
+	}
+
+	if err := db.Where("author_id = ?", authorId).Find(&books).Error; err != nil {
+		return books, err
+	}
+
+	return books, nil
 }
 
 func CreateAuthor(author_schema *schemas.CreateAuthorSchema) (models.Author, error) {

@@ -1,9 +1,9 @@
 package main
 
 import (
-	"go-api/config"
-	"go-api/models"
-	"go-api/router"
+	"github.com/lucasfrancaid/go-api/config"
+	"github.com/lucasfrancaid/go-api/models"
+	"github.com/lucasfrancaid/go-api/router"
 )
 
 func main() {

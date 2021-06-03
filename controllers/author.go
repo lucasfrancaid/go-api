@@ -1,10 +1,9 @@
 package controllers
 
 import (
-	"go-api/repositories"
-	"go-api/schemas"
-
 	"github.com/gin-gonic/gin"
+	"github.com/lucasfrancaid/go-api/repositories"
+	"github.com/lucasfrancaid/go-api/schemas"
 )
 
 func GetAllAuthors(ctx *gin.Context) {
@@ -28,6 +27,18 @@ func GetAuthor(ctx *gin.Context) {
 	}
 
 	ctx.JSON(200, author)
+}
+
+func GetAuthorBooks(ctx *gin.Context) {
+	authorId := ctx.Param("id")
+	books, err := repositories.GetAuthorBooks(authorId)
+
+	if err != nil {
+		ctx.JSON(400, gin.H{"detail": err.Error()})
+		return
+	}
+
+	ctx.JSON(200, books)
 }
 
 func CreateAuthor(ctx *gin.Context) {

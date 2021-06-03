@@ -1,9 +1,8 @@
 package router
 
 import (
-	"go-api/controllers"
-
 	"github.com/gin-gonic/gin"
+	"github.com/lucasfrancaid/go-api/controllers"
 )
 
 func (r RouterShema) AuthorRoutes(rg *gin.RouterGroup) {
@@ -14,4 +13,6 @@ func (r RouterShema) AuthorRoutes(rg *gin.RouterGroup) {
 	author.GET("/:id", controllers.GetAuthor)
 	author.PUT("/:id", controllers.UpdateAuthor)
 	author.DELETE("/:id", controllers.DeleteAuthor)
+	author.GET("/:id/books", controllers.GetAuthorBooks)
+
 }

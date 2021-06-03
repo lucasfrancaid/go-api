@@ -1,9 +1,9 @@
 package repositories
 
 import (
-	"go-api/config"
-	"go-api/models"
-	"go-api/schemas"
+	"github.com/lucasfrancaid/go-api/config"
+	"github.com/lucasfrancaid/go-api/models"
+	"github.com/lucasfrancaid/go-api/schemas"
 )
 
 func GetAllBooks() ([]models.Book, error) {

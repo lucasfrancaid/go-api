@@ -1,9 +1,8 @@
 package router
 
 import (
-	"go-api/controllers"
-
 	"github.com/gin-gonic/gin"
+	"github.com/lucasfrancaid/go-api/controllers"
 )
 
 func (r RouterShema) BookRoutes(rg *gin.RouterGroup) {
