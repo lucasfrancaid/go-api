@@ -26,6 +26,7 @@ make run
 [POST] Create Author --> http://localhost:8080/v1/authors  
 [GET] Get All Authors --> http://localhost:8080/v1/authors  
 [GET] Get Author --> http://localhost:8080/v1/authors/1  
+[GET] Get Author Books --> http://localhost:8080/v1/authors/1/books  
 [PUT] Update Author --> http://localhost:8080/v1/books/1  
 [DELETE] Delete Authors --> http://localhost:8080/v1/authors/1  
 ```json
